@@ -1,5 +1,4 @@
 // Mini app ANIMA — Me Respeita. Os dados das artistas ficam em data.js.
-const LINK_EXPO = "https://bit.ly/merespeita";
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const papel = (a) => (a.coletivo ? "Artistas expositoras" : "Artista expositora");
@@ -29,9 +28,7 @@ const TELAS = {
         <p class="anima"><svg class="coroa" viewBox="0 0 120 80" aria-hidden="true"><path d="M10 70 L18 14 L42 46 L60 6 L78 46 L102 14 L110 70 Z"/></svg>ANIMA</p>
         <h1 class="titulo-graffiti">Me Respeita</h1>
         <p class="inicio-sub">Exposição Metaverso</p>
-        <p class="inicio-data">Abertura <strong>30.10.2026</strong> · 18h</p>
         <p class="inicio-curadoria">Curadoria <strong>Katia Suzue</strong></p>
-        <a class="botao botao-rosa botao-cheio" href="${LINK_EXPO}" target="_blank" rel="noopener">Entrar na exposição</a>
       </div>
     </section>
 
@@ -80,18 +77,6 @@ const TELAS = {
         <span class="titulo-graffiti">Me Respeita</span>
         Porque a arte feita por mulheres transforma, ocupa e inspira.
       </blockquote>
-    </section>`,
-
-  acesso: () => `
-    <section class="bloco acesso">
-      <p class="rotulo">Acesse</p>
-      <h1 class="titulo-graffiti titulo-tela">Entre no Metaverso</h1>
-      <p>Abertura em <strong>30 de outubro de 2026, às 18h</strong>. A mostra acontece online: abra o link no computador ou no celular.</p>
-      <a class="botao botao-rosa botao-cheio" href="${LINK_EXPO}" target="_blank" rel="noopener">bit.ly/merespeita</a>
-      <button class="botao botao-linha botao-cheio" type="button" id="instalar" hidden>Instalar o app no celular</button>
-      <img class="acesso-cartaz" src="/img/cartaz-qr.webp" alt="Cartaz da exposição com QR code para bit.ly/merespeita" loading="lazy">
-      <p class="rotulo rotulo-centro">Realização e apoio</p>
-      <img class="parceiros" src="/img/parceiros.webp" alt="Suzue Crypto Gang, Galeria Elefante Subversivo, Acervo 03, D! Comunicação e Agência Cannábica" loading="lazy">
     </section>`,
 
   artista: (a, idx) => {
@@ -177,7 +162,7 @@ function render() {
   const raiz = r.nome === "inicio";
   $("#voltar").hidden = raiz;
   $(".marca").hidden = !raiz;
-  $("#barra-titulo").textContent = raiz ? "" : a ? a.nome : { artistas: "Artistas", curadoria: "Curadoria", acesso: "Acesso" }[r.nome];
+  $("#barra-titulo").textContent = raiz ? "" : a ? a.nome : { artistas: "Artistas", curadoria: "Curadoria" }[r.nome];
   document.title = raiz ? "ANIMA — Me Respeita" : `${$("#barra-titulo").textContent} — Me Respeita`;
 
   ligarTela(a);
@@ -203,16 +188,6 @@ function ligarTela(a) {
     });
   }
   if (a) tela.querySelectorAll("[data-obra]").forEach((b) => b.addEventListener("click", () => abrirLuz(a, Number(b.dataset.obra))));
-  const instalar = $("#instalar");
-  if (instalar && pedidoInstalacao) {
-    instalar.hidden = false;
-    instalar.addEventListener("click", async () => {
-      pedidoInstalacao.prompt();
-      await pedidoInstalacao.userChoice;
-      pedidoInstalacao = null;
-      instalar.hidden = true;
-    });
-  }
 }
 
 $("#voltar").addEventListener("click", () => {
@@ -233,7 +208,7 @@ $("#compartilhar").addEventListener("click", async () => {
   const a = rotaAtual && rotaAtual.nome === "artista" ? ARTISTAS[rotaAtual.idx] : null;
   const dados = {
     title: a ? `${a.nome} — Me Respeita` : "ANIMA — Me Respeita",
-    text: a ? `Conheça ${a.nome} na exposição Me Respeita, no Metaverso.` : "Exposição Me Respeita no Metaverso · Abertura 30.10.2026, 18h",
+    text: a ? `Conheça ${a.nome} na exposição Me Respeita, no Metaverso.` : "Conheça as artistas e as obras da exposição Me Respeita, no Metaverso.",
     url: location.href,
   };
   try {
@@ -306,12 +281,6 @@ document.addEventListener("keydown", (e) => {
 });
 
 // ---------- PWA ----------
-let pedidoInstalacao = null;
-addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  pedidoInstalacao = e;
-  if (rotaAtual && rotaAtual.nome === "acesso") ligarTela(null);
-});
 if ("serviceWorker" in navigator && location.protocol === "https:") {
   addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
 }
