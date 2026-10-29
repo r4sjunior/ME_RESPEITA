@@ -76,7 +76,7 @@ const ARTISTAS = [
     slug: "flor-de-cacto",
     nome: "Flor de Cacto",
     nomeCivil: "Cia Feminina Antiassédio",
-    cidade: "São Paulo – SP",
+    cidade: "Salvador – BA",
     coletivo: true,
     links: [{ rotulo: "@flordecacto.antiassedio", url: "https://instagram.com/flordecacto.antiassedio" }],
     bio: [

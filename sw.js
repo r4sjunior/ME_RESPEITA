@@ -1,6 +1,6 @@
 // Service worker: casca do app em cache (rede primeiro) e mídia em cache sob demanda.
 // Ao mudar index/styles/app/data, troque a versão para forçar a atualização.
-const VERSAO = "me-respeita-v3";
+const VERSAO = "me-respeita-v4";
 const CASCA = ["/", "/styles.css", "/app.js", "/data.js", "/manifest.webmanifest", "/img/hero.webp", "/img/icone-192.png"];
 
 self.addEventListener("install", (e) => {
