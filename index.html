@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ANIMA — Me Respeita</title>
+  <meta name="description" content="Mini app da exposição Me Respeita no Metaverso, com curadoria de Katia Suzue. Conheça as artistas e suas obras.">
+  <meta name="theme-color" content="#120814">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Me Respeita">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ANIMA — Me Respeita">
+  <meta property="og:description" content="Exposição Metaverso · Curadoria Katia Suzue · Abertura 30.10.2026, 18h">
+  <meta property="og:image" content="/img/cartaz.webp">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="/img/icone-192.png">
+  <link rel="apple-touch-icon" href="/img/icone-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="barra">
+      <button class="barra-voltar" id="voltar" type="button" aria-label="Voltar" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <a class="marca" href="#inicio" aria-label="Início">
+        <span class="marca-anima">ANIMA</span>
+        <span class="marca-nome">Me Respeita</span>
+      </a>
+      <span class="barra-titulo" id="barra-titulo"></span>
+      <button class="barra-acao" id="compartilhar" type="button" aria-label="Compartilhar">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 002 2h10a2 2 0 002-2v-6"/></svg>
+      </button>
+    </header>
+
+    <main class="tela" id="tela" tabindex="-1"></main>
+
+    <nav class="abas" aria-label="Navegação">
+      <a href="#inicio" data-aba="inicio">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg>
+        <span>Início</span>
+      </a>
+      <a href="#artistas" data-aba="artistas">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 010 6.8M18 14.8c2 .7 3.2 2.5 3.6 5.2"/></svg>
+        <span>Artistas</span>
+      </a>
+      <a href="#curadoria" data-aba="curadoria">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.5-5L16 4.5a2.1 2.1 0 013 3L8.5 18z"/><path d="M14 6.5l3 3"/></svg>
+        <span>Curadoria</span>
+      </a>
+      <a href="#acesso" data-aba="acesso">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM18 18h3v3h-3zM14 20v1M20 14v1"/></svg>
+        <span>Acesso</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Lightbox das obras -->
+  <div class="luz" id="luz" role="dialog" aria-modal="true" aria-label="Obra ampliada" hidden>
+    <button class="fechar" type="button" data-luz-fechar aria-label="Fechar">×</button>
+    <button class="luz-nav luz-ant" type="button" aria-label="Obra anterior">‹</button>
+    <figure class="luz-figura">
+      <div class="luz-midia" id="luz-midia"></div>
+      <figcaption id="luz-legenda"></figcaption>
+    </figure>
+    <button class="luz-nav luz-prox" type="button" aria-label="Próxima obra">›</button>
+  </div>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+  <script src="/data.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

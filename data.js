@@ -1,0 +1,163 @@
+// Dados das artistas — textos vindos de ARTISTAS/<pasta>/info.txt e cidades das chamadas.
+const ARTISTAS = [
+  {
+    slug: "adico",
+    nome: "Adico",
+    cidade: "Guarulhos – SP",
+    links: [{ rotulo: "@adicotomia", url: "https://instagram.com/adicotomia" }],
+    bio: [
+      "Adico é travesti, artista e educadora guarulhense. Sua prática transita entre as artes visuais, a comunicação popular e a produção cultural, articulando criação e mobilização política. Pela linguagem do lambe-lambe, desenvolve trabalhos que provocam reflexões sobre gênero, afetos, liberdade e as possibilidades de existência para além das normas estabelecidas.",
+      "Na Marcha da Maconha de Guarulhos, sua atuação conecta expressão artística e ocupação do espaço público, com oficinas e criação de lambes, a execução do bandeirão e a comunicação visual do movimento. Seu trabalho compreende a arte como ferramenta de mobilização, capaz de transformar mensagens em presença coletiva e ampliar vozes historicamente marginalizadas. Entre palavras, imagens e corpos em movimento, Adico investiga a potência de comunicar, existir e imaginar outras possibilidades de mundo.",
+    ],
+    obras: [
+      "Lambe-lambe de divulgação da Marcha da Maconha Guarulhos 2026",
+      "Arte digital de divulgação da Marcha da Maconha Guarulhos 2026",
+      "Artistas em Marcha com o Bandeirão da Marcha da Maconha Guarulhos 2026 — Foto: Petty",
+    ],
+  },
+  {
+    slug: "amanda-pankill",
+    nome: "Amanda Pankill",
+    cidade: "São Paulo – SP",
+    links: [{ rotulo: "@amandapankill", url: "https://instagram.com/amandapankill" }],
+    bio: [
+      "Amanda Pankill é artista visual, arte-educadora e produtora cultural, com trajetória iniciada na arte urbana e no graffiti no início dos anos 2000. É graduada em Desenho Industrial e pós-graduada em História da Arte pela Fundação Armando Álvares Penteado (FAAP).",
+      "Ao longo de mais de 20 anos de atuação, desenvolveu trabalhos em espaços públicos, exposições, projetos culturais e ações para marcas como Nike, The Body Shop, Arezzo, Forum e Itaipava. Sua trajetória também inclui participações em projetos e eventos no Brasil e no exterior, com exposições em Los Angeles e Paris, mural em Washington e intercâmbio cultural em Nova York, Santiago, entre outras cidades.",
+      "Em sua produção, a figura feminina ocupa lugar central, explorando temas como força, poder, violência, liberdade e subjetividade. Suas personagens são construídas a partir da síntese das formas, anatomia estilizada, massas de cor e contrastes intensos. Sua linguagem parte da experiência do graffiti e da arte urbana, mas se desenvolve em diferentes suportes e possibilidades da pintura contemporânea.",
+    ],
+    obras: ["Corpo Fortaleza", "Kianumaka Manã", "Enlaço"],
+  },
+  {
+    slug: "tikka",
+    nome: "Ana Carolina Tikka",
+    cidade: "São Paulo – SP",
+    links: [{ rotulo: "@tikkameszaros", url: "https://instagram.com/tikkameszaros" }],
+    bio: [
+      "A artista e grafiteira, nascida em São Paulo em 1986, começou a fazer graffiti em 2002 e logo se encantou com a possibilidade de interagir com o cotidiano das pessoas inserindo um universo mágico em seus caminhos.",
+      "Mãe do Rudá e da Anne, e moradora da cidade de Piracicaba, ela expressa em seu trabalho uma mistura de sentimentos, brincadeiras e símbolos culturais. Apresenta, em muitas cores, uma arte que explora o belo e conta histórias.",
+      "Durante sua trajetória, já foi citada como um dos 5 grandes artistas do país, participou de eventos importantes como a I Bienal Internacional de Graffiti e a I e III Bienal de Graffiti Fine Art, e já expôs seus trabalhos em São Paulo, Belo Horizonte, Brasília, Nova York, Los Angeles, Washington, Annapolis, Londres e Paris.",
+    ],
+    obras: ["Liberdade", "Mata Atlântica", "Cria Mundo"],
+  },
+  {
+    slug: "babilonia",
+    nome: "Babilônia",
+    nomeCivil: "Barbara Mesquita",
+    cidade: "João Pessoa – PB",
+    links: [],
+    bio: [
+      "Barbara Mesquita (Babilônia) é artista visual, grafiteira e artesã de João Pessoa (PB), graduada em Artes Visuais pela UFPB.",
+      "Participou de exposições coletivas de artes visuais, encontros e festivais de arte urbana. É uma das idealizadoras e professora do Projeto Graffiti.",
+    ],
+    obras: ["Lia de Itamaracá", "Lia de Itamaracá"],
+  },
+  {
+    slug: "carol-lubalu",
+    nome: "Carol Lubalu",
+    cidade: "Alto Paraíso – GO",
+    links: [{ rotulo: "@carol.lubalu", url: "https://instagram.com/carol.lubalu" }],
+    bio: [
+      "Multiartista e entusiasta da web3, utiliza variadas linguagens como ferramenta de experimentação estética entre o orgânico e o digital. Seu trabalho articula ativismo social, ambiental e antiproibicionista, investigando novas narrativas visuais e políticas para espaços imersivos e o metaverso.",
+    ],
+    obras: ["Quais Corpos Merecem Respeito?", "Fugir de Si"],
+    video: true,
+  },
+  {
+    slug: "didi-assis",
+    nome: "Didi Assis",
+    cidade: "Rio de Janeiro – RJ",
+    links: [],
+    bio: [
+      "Designer gráfico e artista plástico com mais de 15 anos de experiência no setor gráfico, em grandes formatos, publicidade, mídias sociais, música e terceiro setor. Cantora e compositora há 25 anos.",
+    ],
+    obras: ["Futuro Verde Rosa", "Laroyê Maria Padilha", "Salve Ela — Carolina Maria de Jesus"],
+  },
+  {
+    slug: "flor-de-cacto",
+    nome: "Flor de Cacto",
+    nomeCivil: "Cia Feminina Antiassédio",
+    cidade: "São Paulo – SP",
+    coletivo: true,
+    links: [{ rotulo: "@flordecacto.antiassedio", url: "https://instagram.com/flordecacto.antiassedio" }],
+    bio: [
+      "A Flor de Cacto Companhia Feminina Antiassédio é um artivismo em prol do bem viver das mulheres. Através de ações educativas, a Companhia atua em diversificados nichos de entretenimento e laborais, com foco na prevenção da violência de gênero, contribuindo para o fomento de interações saudáveis, baseadas em respeito e gentileza.",
+    ],
+    obras: ["Chegue na Manha", "Mulher protegendo Mulher", "Quem somos"],
+  },
+  {
+    slug: "marta-henriksen",
+    nome: "Marta Henriksen",
+    cidade: "Campinas – SP",
+    links: [{ rotulo: "martahenriksen.com.br", url: "https://www.martahenriksen.com.br" }],
+    bio: [
+      "Marta Henriksen é artista visual, muralista e produtora cultural. Sua pesquisa explora formas geométricas e cores vibrantes, combinadas para criar ritmo e harmonia. Investiga também o contorno preto e os contrastes que ele estabelece com as demais cores. Em seus projetos, aproxima a pintura de linguagens digitais, como realidade aumentada e videomapping.",
+    ],
+    obras: ["Portal", "Multidimensional", "Alegria"],
+  },
+  {
+    slug: "naiana-nati",
+    nome: "Naiana Nati",
+    cidade: "Brasília – DF",
+    links: [{ rotulo: "@naianatti", url: "https://instagram.com/naianatti" }],
+    bio: [
+      "Naiana Alves, conhecida artisticamente como Nati, é grafiteira, ilustradora, tatuadora e produtora cultural de Ceilândia, Distrito Federal. Nascida em 1989, integra a primeira geração de grafiteiras do Distrito Federal e atua na arte urbana desde 2006, construindo uma trajetória marcada pela presença feminina na cultura urbana e pela ocupação do espaço público por meio da arte.",
+      "Sua pesquisa artística tem como eixo o feminino e sua relação com a natureza, investigando a presença desses dois elementos no espaço urbano. Em seu trabalho, a mulher, historicamente associada ao ambiente doméstico e ao espaço privado, também ocupa as ruas, os muros e a cidade por meio do graffiti. Ao mesmo tempo, a natureza aparece como uma presença que foi sendo afastada das cidades, especialmente em territórios periféricos, onde a paisagem muitas vezes é marcada pela predominância de construções, casas e pouca arborização.",
+      "É nesse encontro entre mulher, natureza e cidade que surgem suas “meninas flores”: personagens femininas de olhos expressivos, cores vibrantes e elementos da fauna e da flora. Flores, folhas e corpos se misturam para criar imagens que propõem outras formas de existir, ocupar e imaginar o espaço urbano. Sua produção aborda ainda identidade, pertencimento, afeto, maternidade, liberdade e os vínculos entre corpo e território.",
+      "Sua produção transita pelo graffiti, muralismo, ilustração, pintura e escultura, levando sua pesquisa para muros, espaços públicos, galerias, exposições e diferentes suportes. A rua permanece como um elemento fundamental de sua trajetória, tanto como espaço de criação quanto como território de encontro, expressão e transformação.",
+      "Além da atuação como artista, Naiana é produtora cultural e empreendedora, desenvolvendo iniciativas voltadas à valorização da arte urbana e de artistas independentes. É idealizadora e realizadora de projetos como Circuito Muralha, Graffiti Sound System e Feira NOIZ, além de atuar na Galeria Muros Vivos. Também ministra oficinas de desenho, graffiti e formação para artistas e empreendedores culturais, abordando temas como elaboração de projetos, construção de portfólio, editais e premiações.",
+      "A partir de sua vivência na periferia do Distrito Federal, Naiana Nati constrói uma produção em que flores e mulheres ocupam lugares historicamente marcados pela ausência: a mulher que amplia seus territórios de existência e a natureza que retorna à paisagem urbana. Seu trabalho transforma essas presenças em linguagem visual, criando personagens e paisagens que afirmam a possibilidade de diferentes modos de existir, criar e ocupar o território.",
+    ],
+    obras: ["Onde Floresço — arte digital", "Natureza em Mim — arte digital", "Nós Florescemos — arte digital"],
+  },
+  {
+    slug: "noturnas-crew",
+    nome: "Noturnas Crew",
+    cidade: "São Paulo – SP",
+    coletivo: true,
+    links: [{ rotulo: "@noturnas_crew", url: "https://instagram.com/noturnas_crew" }],
+    bio: [
+      "Primeira crew da cidade de São Paulo formada apenas por integrantes mulheres.",
+      "A união se inicia em 2005, com um grupo de garotas que só queriam estar juntas para se sentir seguras e se divertir nas ruas da cidade. Ao longo dos anos, muita arte e muito graffiti foi o legado que a crew deixou para a história da arte urbana paulista.",
+      "Atualmente estão na ativa Suzue, Pan, Tikka, Miss e Ya — hoje, nomes de maior referência na cena feminina brasileira da arte de rua.",
+    ],
+    obras: ["Mural de 2006", "Mulheres na cena", "NTS 2005"],
+  },
+  {
+    slug: "numa-godoy",
+    nome: "Numa Godoy",
+    cidade: "Curitiba – PR",
+    links: [{ rotulo: "numadessas.com.br", url: "https://numadessas.com.br/" }],
+    bio: [
+      "Numa é criptoartista e está na web3 desde 2021. Sua prática transita fluidamente entre ilustração, graffiti, escultura, 3D e realidade virtual, invocando criaturas híbridas de um universo onírico e colorido entrelaçado com a fauna e a flora brasileiras.",
+      "Mestre em Design pela UFPE, já expôs em diferentes estados do Brasil e na França, Alemanha, Holanda, Áustria, Tailândia e Canadá.",
+    ],
+    obras: ["Veneno", "Kata", "Solflower"],
+  },
+  {
+    slug: "wira-tini",
+    nome: "Wɨra Tini",
+    cidade: "Manaus – AM",
+    links: [{ rotulo: "@tini.wra", url: "https://instagram.com/tini.wra" }],
+    bio: [
+      "Wɨra Tini é artista visual e apresenta em seu trabalho as perspectivas do povo Kokama, do qual é descendente, e da cultura nortista, conectando conhecimentos tradicionais com perspectivas contemporâneas e evidenciando diferentes concepções e diálogos em fricção com o senso comum.",
+      "Tini mostra em seus trabalhos saberes ancestrais, questões sobre meio ambiente e a vida urbana, estimulando a ampliação de saberes pela cultura. Natural de Manaus, Amazonas, já realizou diversas exposições e participou de diferentes festivais de arte urbana em várias cidades do Brasil, acumulando também trabalhos artísticos em parceria com marcas e organizações.",
+      "É idealizadora do Graffiti Queens, um dos primeiros festivais de arte urbana voltado para mulheres, e da Revista Graffiti Queens, que apresenta importantes nomes do cenário da arte urbana nacional e internacional.",
+    ],
+    obras: ["Karuaras, o povo do Rio", "IPIRAWIRA", "Mashakara Kukama"],
+  },
+  {
+    slug: "yara-amaral",
+    nome: "Yara Amaral",
+    cidade: "Vila Madalena – SP",
+    links: [
+      { rotulo: "yaramar.al", url: "https://www.yaramar.al" },
+      { rotulo: "@yaramaral7", url: "https://instagram.com/yaramaral7" },
+    ],
+    bio: [
+      "Yara Amaral Gurgel (Yá!) é artista visual e vive entre a Vila Madalena (SP) e Boiçucanga, no litoral norte de São Paulo, no Espaço Amor, seus ateliês. Morou na aldeia indígena Fulni-ô, em Águas Belas (PE).",
+      "Formada em Comunicação das Artes do Corpo pela PUC-SP e mestra em Novo Muralismo pelo MAC-USP, pinta murais desde 2003. Sua obra une ancestralidades mestiça e Fulni-ô indígena, arte botânica — principalmente da Mata Atlântica, seu habitat —, grafismos indígenas e a sereia Yara, protetora das águas na mitologia tupi-guarani. Artivista, usa tinta fotocatalítica, que capta CO₂, em suas obras murais, e faz upcycling de pranchas de surf.",
+      "Expôs no MAC-USP, em unidades do SESC, no Memorial da América Latina, na Choque Cultural e em galerias na Europa e nos EUA. Tem trabalhos no Beco do Batman e em espaços urbanos do litoral paulista. Integra projetos como Abram os Rios e coletivos como Noturnas e Coletivo Graffiti SP.",
+    ],
+    obras: ["Casal Saíras 7 Cores", "Rios na Casa Sol", "Casal de Tiês"],
+  },
+];
